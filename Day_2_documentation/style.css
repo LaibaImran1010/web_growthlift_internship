@@ -29,17 +29,18 @@ header h1 {
     margin: 0;
 }
 
-/* Navigation Menu Styling */
+/* Navigation Menu Styling (Updated with Flexbox) */
 nav {
     background-color: #0f172a; /* Dark sleek background for contrast */
-    text-align: center;
-    padding: 12px 0;
+    padding: 15px 0;
+    display: flex;             /* Activates Flexbox */
+    justify-content: center;   /* Spaces links across the horizontal main axis */
+    gap: 30px;                 /* Clean spacing gap between menu anchors */
 }
 
 nav a {
     color: #cbd5e1;
     text-decoration: none;     /* Removed underlines */
-    margin: 0 15px;
     font-weight: 500;
     font-size: 1rem;
     transition: color 0.3s ease; /* Makes the hover effect smooth */
@@ -52,7 +53,7 @@ nav a:hover {
 
 /* Main Content Spacing */
 main {
-    max-width: 800px;          /* Centers and limits content width */
+    max-width: 900px;          /* Expanded slightly to fit flex grid easily */
     margin: 40px auto;         /* Balanced external spacing top/bottom, auto centers */
     padding: 0 20px;           /* Inner side padding for mobile screens */
     text-align: center;
@@ -63,8 +64,45 @@ img {
     max-width: 100%;           /* Fully responsive layout control */
     height: auto;
     border-radius: 8px;        /* Smooth rounded corners */
-    margin-top: 30px;
+    margin-top: 40px;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* ==========================================================================
+   FLEXBOX & CARD LAYOUTS (DAY 4 REQUIREMENTS)
+   ========================================================================== */
+
+/* Flexbox Container Configuration */
+.cards {
+    display: flex;             /* Sets flex display format */
+    flex-wrap: wrap;           /* Allows components to push down if crowded */
+    justify-content: center;   /* Centers flex cards on screen */
+    gap: 20px;                 /* Defines structural spacing parameters */
+    margin: 40px 0;
+}
+
+/* Individual Card Blocks */
+.card {
+    background-color: #ffffff;
+    flex: 1;
+    min-width: 250px;          /* Prevents card shrink compression layouts */
+    max-width: 280px;
+    padding: 24px;             /* Dedicated interior text alignment padding */
+    border-radius: 12px;       /* Sleek curves design edge */
+    text-align: left;          /* Cleaner copy layout presentation */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03); /* Modern soft drop shadow */
+    transition: transform 0.2s ease;
+}
+
+.card h3 {
+    margin-top: 0;
+    color: #0f172a;
+}
+
+.card p {
+    font-size: 0.9rem;
+    color: #64748b;
+    margin-bottom: 0;
 }
 
 /* Footer Styling */
@@ -79,4 +117,23 @@ footer {
 footer p {
     margin: 0;
     font-size: 0.9rem;
+}
+
+/* ==========================================================================
+   RESPONSIVE MEDIA QUERIES
+   ========================================================================== */
+@media (max-width: 768px) {
+    .cards {
+        flex-direction: column; /* Force cards to stack vertically on small viewpoints */
+        align-items: center;
+    }
+    
+    .card {
+        max-width: 100%;       /* Makes card widen properly across small view screens */
+        width: 100%;
+    }
+    
+    header h1 {
+        font-size: 2rem;       /* Reduces title font sizing slightly for tiny screens */
+    }
 }
