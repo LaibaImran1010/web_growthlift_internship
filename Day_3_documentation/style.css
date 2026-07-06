@@ -105,7 +105,53 @@ img {
     margin-bottom: 0;
 }
 
-/* Footer Styling */
+/* ==========================================================================
+   WEEK 2 DAY 1: ADVANCED CSS GRID LAYOUTS
+   ========================================================================== */
+
+.grid-section {
+    display: grid;                                      /* 1. Enables CSS Grid on container */
+    grid-template-columns: repeat(3, 1fr);              /* 2. Sets 3 standard equal columns */
+    
+    /* UNCOMMENT THE LINE BELOW LATER TO TEST AUTO-FIT RESPONSIVENESS */
+    /* grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); */
+    
+    gap: 24px;                                          /* 3. Adds spacing between all grid cards */
+    margin: 40px 0;
+}
+
+/* Base Styles for the new Grid cards */
+.grid-card {
+    background-color: #ffffff;                          /* White background card block */
+    padding: 20px;                                      /* Balanced inner text cushion padding */
+    border-radius: 8px;                                 /* Soft corners asset styling */
+    text-align: left;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);     /* Smooth alignment drop frame */
+}
+
+.grid-card h3 {
+    margin-top: 0;
+    color: #0f172a;
+}
+
+.grid-card p {
+    font-size: 0.9rem;
+    color: #64748b;
+    margin-bottom: 0;
+}
+
+/* Optional Task Spanning Modifiers - Remove or keep to evaluate layout effects */
+.item-span-col {
+    grid-column: span 2;                                /* Card stretches across 2 structural columns */
+}
+
+.item-span-row {
+    grid-row: span 2;                                   /* Card stretches vertically down 2 row spaces */
+}
+
+/* ==========================================================================
+   FOOTER STYLING
+   ========================================================================== */
 footer {
     background-color: #1e293b; /* Distinct background color */
     color: #94a3b8;
@@ -132,7 +178,16 @@ footer p {
         max-width: 100%;       /* Makes card widen properly across small view screens */
         width: 100%;
     }
+
+    /* Fallback layout support on tablets or phones before you activate auto-fit */
+    .grid-section {
+        grid-template-columns: 1fr;
+    }
     
+    .item-span-col {
+        grid-column: span 1;   /* Normalizes spanning on tiny devices */
+    }
+
     header h1 {
         font-size: 2rem;       /* Reduces title font sizing slightly for tiny screens */
     }
