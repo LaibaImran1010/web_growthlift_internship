@@ -11,7 +11,7 @@ body {
 }
 
 /* ==========================================================================
-   ELEMENT STYLING (DAY 3 REQUIREMENTS)
+   ELEMENT STYLING
    ========================================================================== */
 
 /* Header & Title Styling */
@@ -20,13 +20,6 @@ header {
     padding: 30px 20px;       /* Added padding for breathing room */
     text-align: center;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); /* Soft premium boundary */
-}
-
-header h1 {
-    font-size: 2.5rem;         /* Styled font-size */
-    color: #0f172a;            /* Distinct primary deep color */
-    letter-spacing: 1px;       /* Added letter-spacing */
-    margin: 0;
 }
 
 /* Navigation Menu Styling (Updated with Flexbox) */
@@ -38,17 +31,22 @@ nav {
     gap: 30px;                 /* Clean spacing gap between menu anchors */
 }
 
+/* WEEK 2 DAY 2 UPDATE: Navigation Links with Smooth Transitions */
 nav a {
     color: #cbd5e1;
     text-decoration: none;     /* Removed underlines */
     font-weight: 500;
     font-size: 1rem;
-    transition: color 0.3s ease; /* Makes the hover effect smooth */
+    padding: 6px 12px;
+    border-radius: 4px;
+    /* Smoothly transitions both the color and background values over 0.3 seconds */
+    transition: color 0.3s ease, background-color 0.3s ease; /*[cite: 1] */
 }
 
-/* Navigation Hover Effect */
+/* WEEK 2 DAY 2 UPDATE: Navigation Hover Effect */
 nav a:hover {
-    color: #38bdf8;            /* Changes color to a vibrant blue on hover */
+    color: #0f172a;            /* Dark text on hover */
+    background-color: #38bdf8; /* Smooth sky blue background pill */ /*[cite: 1] */
 }
 
 /* Main Content Spacing */
@@ -69,7 +67,7 @@ img {
 }
 
 /* ==========================================================================
-   FLEXBOX & CARD LAYOUTS (DAY 4 REQUIREMENTS)
+   FLEXBOX & CARD LAYOUTS (WEEK 1)
    ========================================================================== */
 
 /* Flexbox Container Configuration */
@@ -106,27 +104,35 @@ img {
 }
 
 /* ==========================================================================
-   WEEK 2 DAY 1: ADVANCED CSS GRID LAYOUTS
+   WEEK 2 DAY 1 & 2: ADVANCED CSS GRID LAYOUTS & INTERACTIVE EFFECTS
    ========================================================================== */
 
 .grid-section {
-    display: grid;                                      /* 1. Enables CSS Grid on container */
-    grid-template-columns: repeat(3, 1fr);              /* 2. Sets 3 standard equal columns */
+    display: grid;                                      /* Enables CSS Grid on container */ /*[cite: 1] */
+    grid-template-columns: repeat(3, 1fr);              /* Sets 3 standard equal columns */ /*[cite: 1] */
     
-    /* UNCOMMENT THE LINE BELOW LATER TO TEST AUTO-FIT RESPONSIVENESS */
-    /* grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); */
+    /* UNCOMMENT THE LINE BELOW TO ACTIVELY TEST FLUID AUTO-FIT RESPONSIVENESS */
+    /* grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); */ /*[cite: 1] */
     
-    gap: 24px;                                          /* 3. Adds spacing between all grid cards */
+    gap: 24px;                                          /* Adds spacing between all grid cards */ /*[cite: 1] */
     margin: 40px 0;
 }
 
-/* Base Styles for the new Grid cards */
+/* Base Styles for the Grid cards */
 .grid-card {
-    background-color: #ffffff;                          /* White background card block */
-    padding: 20px;                                      /* Balanced inner text cushion padding */
-    border-radius: 8px;                                 /* Soft corners asset styling */
+    background-color: #ffffff;                          
+    padding: 20px;                                      /* Balanced inner text cushion padding */ /*[cite: 1] */
+    border-radius: 8px;                                 /* Soft corners asset styling */ /*[cite: 1] */
     text-align: left;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);     /* Smooth alignment drop frame */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);     
+    /* WEEK 2 DAY 2 UPDATE: Smoothly animates the card lift and shadow expansion */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /*[cite: 1] */
+}
+
+/* WEEK 2 DAY 2 UPDATE: Interactive Elevating Grid Cards */
+.grid-card:hover {
+    transform: translateY(-6px); /* Lifts the card up smoothly by 6px */ /*[cite: 1] */
+    box-shadow: 0 12px 32px rgba(56, 189, 248, 0.15); /* Replaces thin shadow with a wide ambient glow */ /*[cite: 1] */
 }
 
 .grid-card h3 {
@@ -140,13 +146,65 @@ img {
     margin-bottom: 0;
 }
 
-/* Optional Task Spanning Modifiers - Remove or keep to evaluate layout effects */
+/* Task Spanning Modifiers */
 .item-span-col {
-    grid-column: span 2;                                /* Card stretches across 2 structural columns */
+    grid-column: span 2;                                /* Card stretches across 2 structural columns */ /*[cite: 1] */
 }
 
 .item-span-row {
-    grid-row: span 2;                                   /* Card stretches vertically down 2 row spaces */
+    grid-row: span 2;                                   /* Card stretches vertically down 2 row spaces */ /*[cite: 1] */
+}
+
+/* ==========================================================================
+   WEEK 2 DAY 2: KEYFRAME ANIMATIONS
+   ========================================================================== */
+
+/* Triggers the title entry animation */
+header h1 {
+    font-size: 2.5rem;
+    color: #0f172a;
+    letter-spacing: 1px;
+    margin: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    /* Applies the fadeInUp pattern over 0.8 seconds and locks its ending state */
+    animation: fadeInUp 0.8s ease forwards; /*[cite: 1] */
+}
+
+/* Slide Up and Fade In Keyframes */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px); /* Starts 30px lower down the screen */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);    /* Moves up smoothly to its natural position */
+    } /*[cite: 1] */
+}
+
+/* Green Live Indicator Layout */
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;               /* Perfect circle layout */ /*[cite: 1] */
+    background-color: #00C864;         /* Bright green live color */ /*[cite: 1] */
+    display: inline-block;             /*[cite: 1] */
+    /* Loops the scaling pulse indefinitely every 2 seconds */
+    animation: pulse 2s ease-in-out infinite; /*[cite: 1] */
+}
+
+/* Scale and Opacity Keyframes */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50 {
+        transform: scale(0.6);         /* Shrinks down slightly */
+        opacity: 0.4;                  /* Fades out midway through the loop */
+    } /*[cite: 1] */
 }
 
 /* ==========================================================================
