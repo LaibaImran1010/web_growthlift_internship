@@ -10,11 +10,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
 
     <header>
-        <h1>Laiba Imran <span class="dot"></span></h1> <!--[cite: 1] -->
+        <h1>Laiba Imran <span class="dot"></span></h1> <!-- -->
     </header>
 
     <nav>
@@ -54,34 +55,75 @@
         </div>
 
         <!-- ==========================================================================
-           WEEK 2 DAY 1: CSS GRID SECTION
+           WEEK 2 DAY 1: CSS GRID SECTION (Updated with Skills & Expanded Projects)
            ========================================================================== -->
-        <h2 style="margin-top: 60px;">My Core Developer Toolkit (CSS Grid)</h2>
+        <h2 style="margin-top: 60px;">My Skills & Featured Projects</h2>
         <section class="grid-section">
-            <div class="grid-card item-span-col">
-                <h3>Git & Version Control</h3>
-                <p>Managing code commits, working with remote branches, and maintaining repository historical lifecycles clean and trace-friendly.</p>
+            
+            <!-- Skills Card (Takes up 2 columns for visibility) -->
+            <div class="grid-card skills-card item-span-col">
+                <h3>Technical Skills</h3>
+                <div class="skills-tags">
+                    <span>Python</span>
+                    <span>C++</span>
+                    <span>Java</span>
+                    <span>JavaScript</span>
+                    <span>HTML5 & CSS3</span>
+                    <span>SQL & MySQL</span>
+                    <span>OpenCV</span>
+                    <span>Git & GitHub</span>
+                </div>
             </div>
-            <div class="grid-card item-span-row">
-                <h3>Advanced CSS Layouts</h3>
-                <p>Transitioning architecture from 1D layouts into complex 2D rows and columns using Grid layouts seamlessly.</p>
+
+            <!-- Project 1: Nova Pay -->
+            <div class="grid-card project-card">
+                <span class="project-category">Fintech App</span>
+                <h3>Nova Pay</h3>
+                <p>A secure digital wallet application designed for seamless financial transactions and asset management.</p>
             </div>
-            <div class="grid-card">
-                <h3>JavaScript Essentials</h3>
-                <p>Writing standard clean code workflows utilizing deep modern arrays, objects, functions, and logic paradigms.</p>
+
+            <!-- Project 2: Routio -->
+            <div class="grid-card project-card">
+                <span class="project-category">Transportation</span>
+                <h3>Routio</h3>
+                <p>An innovative transit platform connecting riders and drivers via real-time bidding algorithms.</p>
             </div>
-            <div class="grid-card">
-                <h3>DOM API Operations</h3>
-                <p>Selecting HTML structural modules dynamically to execute responsive style shifts based on client-side actions.</p>
+
+            <!-- Project 3: AI Student Helpdesk -->
+            <div class="grid-card project-card">
+                <span class="project-category">Artificial Intelligence</span>
+                <h3>AI Student Helpdesk</h3>
+                <p>An intelligent web application featuring a smart chatbot built to dynamically resolve student queries.</p>
             </div>
-            <div class="grid-card">
-                <h3>Asynchronous Fetch API</h3>
-                <p>Connecting frontend engines to database services seamlessly via network resource transfers without refresh intervals.</p>
+
+            <!-- Project 4: Chatbot AI Content Creator -->
+            <div class="grid-card project-card">
+                <span class="project-category">AI & Automation</span>
+                <h3>AI Content Creator</h3>
+                <p>An advanced chatbot built to generate text, marketing copy, and creative assets using natural language processing.</p>
             </div>
-            <div class="grid-card">
-                <h3>Responsive Engineering</h3>
-                <p>Developing adaptable view configurations tailored automatically across variable desktop or smartphone resolutions.</p>
+
+            <!-- Project 5: Library Management App -->
+            <div class="grid-card project-card">
+                <span class="project-category">Database App</span>
+                <h3>Library Management App</h3>
+                <p>A clean dashboard tracking book inventories, borrower records, and automatic return deadlines.</p>
             </div>
+
+            <!-- Project 6: University Management System -->
+            <div class="grid-card project-card">
+                <span class="project-category">Enterprise Web</span>
+                <h3>University Management System</h3>
+                <p>A comprehensive platform facilitating student portal registration, grading workflows, and academic scheduling.</p>
+            </div>
+
+            <!-- Project 7: Fitness Tracker -->
+            <div class="grid-card project-card">
+                <span class="project-category">Web Development</span>
+                <h3>Fitness Tracker</h3>
+                <p>A performance logging platform tailored to help users schedule workouts and monitor daily metrics.</p>
+            </div>
+
         </section>
     </main>
 
