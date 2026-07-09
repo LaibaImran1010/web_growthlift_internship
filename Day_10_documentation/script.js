@@ -53,3 +53,4 @@ if (completedTasks >= 10) {
 } else {
     console.log(`Status update: Keep pushing, ${studentName}! You have completed ${completedTasks} tasks.`);
 }
+

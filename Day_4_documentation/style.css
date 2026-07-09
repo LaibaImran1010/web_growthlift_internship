@@ -274,3 +274,77 @@ header h1 {
         font-size: 2rem;       
     }
 }
+
+/* ==========================================================================
+   WEEK 2 DAY 4: DOM MANIPULATION (Tab Switcher Styles)
+   ========================================================================== */
+.tabs-container {
+    max-width: 700px;
+    margin: 30px auto;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid #ffe4e8;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.tab-box {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #ffe4e8;
+    padding-bottom: 15px;
+}
+
+.tab-btn {
+    background: none;
+    border: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #64748b;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: all 0.3s ease; /* */
+}
+
+/* Active Tab Button Style */
+.tab-btn.active {
+    background-color: #ff69b4;
+    color: #ffffff;
+}
+
+.tab-btn:hover:not(.active) {
+    background-color: #fff0f3;
+    color: #ff69b4;
+}
+
+/* Tab Content Logic */
+.tab-content {
+    display: none; /* Hides all panels by default */
+    text-align: left;
+    animation: fadeIn 0.5s ease;
+}
+
+/* Active Panel Style */
+.tab-content.active {
+    display: block; /* Shows only the active panel */
+}
+
+.tab-content h3 {
+    margin-top: 0;
+    color: #0f172a;
+}
+
+.tab-content p {
+    color: #64748b;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
