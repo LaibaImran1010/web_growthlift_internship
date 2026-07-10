@@ -54,3 +54,37 @@ if (completedTasks >= 10) {
     console.log(`Status update: Keep pushing, ${studentName}! You have completed ${completedTasks} tasks.`);
 }
 
+// ==========================================================================
+// GROWTHLIFT INTERNSHIP: WEEK 2 DAY 12 - FETCH API (Quote Generator)
+// ==========================================================================
+
+// Select our HTML placeholder nodes
+const quoteText = document.getElementById("quote-text");
+const quoteAuthor = document.getElementById("quote-author");
+const quoteBtn = document.getElementById("new-quote");
+
+// Define our fetching logic function
+function getQuote() {
+    // 1. Show professional loading state while running the fetch network transfer
+    quoteText.textContent = "Loading quote...";
+    quoteAuthor.textContent = "";
+
+    // 2. Query a reliable, open-source programming quote resource API endpoint
+    fetch("https://dummyjson.com/quotes/random")
+        .then(response => response.json()) // Parse stream into usable JSON map datasets
+        .then(data => {
+            // 3. Update DOM structural properties dynamically with live values
+            quoteText.textContent = `"${data.quote}"`;
+            quoteAuthor.textContent = `— ${data.author}`;
+            console.log("API successfully loaded fresh quote content:", data);
+        })
+        .catch(error => {
+            // Handle offline fallbacks or transfer request errors smoothly
+            quoteText.textContent = "Oops! Failed to pull fresh data from the server pipeline.";
+            console.log("Error loading network asset payload:", error);
+        });
+}
+
+// Attach execution triggers to user clicks and window runtime entries
+quoteBtn.addEventListener("click", getQuote);
+window.addEventListener("DOMContentLoaded", getQuote); // Populates text automatically on load
