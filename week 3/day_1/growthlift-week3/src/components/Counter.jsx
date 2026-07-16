@@ -1,8 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function Counter() {
   const [count, setCount] = useState(0);
-
+         useEffect(() => {
+           document.title = `Count: ${count}`;
+         }, [count]);
+         
   return (
     <div style={{ margin: "20px 0", border: "1px solid #ccc", padding: "15px" }}>
       <p>Count: {count}</p>
