@@ -1,26 +1,90 @@
+import React, { useState, useEffect } from 'react';
+
 function Projects() {
+  const [projects, setProjects] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchProjects = () => {
+      const data = [
+        {
+          id: 1,
+          title: "GrowthLift Week 1 Assignment",
+          description: "Built semantic structures, responsive layouts, and core interface styling using HTML and CSS.",
+          tag: "HTML + CSS"
+        },
+        {
+          id: 2,
+          title: "GrowthLift Week 2 Assignment",
+          description: "Implemented dynamic functionality, interactive UI elements, and state logic using native JavaScript.",
+          tag: "JavaScript"
+        },
+        {
+          id: 3,
+          title: "GrowthLift Week 3 SPA",
+          description: "Created a fully styled dark-themed Single Page Application using React Router and Tailwind CSS.",
+          tag: "Vite + Tailwind"
+        }
+      ];
+      setProjects(data);
+      setLoading(false);
+    };
+
+    fetchProjects();
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center py-12">
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-sky-500"></div>
+      </div>
+    );
+  }
+
   return (
-    <div style={{ lineHeight: "1.6" }}>
-      <h2>My Projects & Technical Implementations</h2>
-      <p>Below are the core technical projects and interface frameworks I have developed:</p>
-      
-      <div style={{ marginTop: "20px" }}>
-        <h3>1. Mobile UI Layout Frameworks</h3>
-        <p>Designed and built structured user interfaces optimizing performance and responsiveness across three major positioning systems:</p>
-        <ul>
-          <li><strong>Constraint Layout Modules:</strong> Built flat, highly responsive UI hierarchies to reduce nested view depths and optimize rendering paths.</li>
-          <li><strong>Relative Positioning Layouts:</strong> Implemented interface components using interdependent element positioning where widgets align relative to parents or siblings.</li>
-          <li><strong>Linear Stack Interfaces:</strong> Built clean, single-direction interface structures utilizing both horizontal and vertical component stacking.</li>
-        </ul>
+    <div className="py-4">
+      {/* Heading */}
+      <div className="text-center mb-10">
+        <h2 className="text-3xl font-extrabold tracking-tight bg-gradient-to-r from-white via-slate-200 to-sky-400 bg-clip-text text-transparent mb-3">
+          My Projects
+        </h2>
+        <p className="text-slate-400 text-sm max-w-md mx-auto">
+          A showcase of the tasks and applications developed during my internship workflow.
+        </p>
       </div>
 
-      <div style={{ marginTop: "20px" }}>
-        <h3>2. Active Web Development Repositories</h3>
-        <ul>
-          <li><strong>growthlift-week3:</strong> This current Single Page Application (SPA) tracking platform utilizing React components, state hooks, and client-side routing.</li>
-          <li><strong>AI_innovaist_internship_:</strong> Core repository dedicated to developing and integrating machine learning and automation task modules.</li>
-          <li><strong>ContentStudio-InnoViast:</strong> Production-level frontend layout designs and module updates managed inside a collaborative studio workspace.</li>
-        </ul>
+      {/* Responsive Cards Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {projects.map((project) => (
+          <div 
+            key={project.id} 
+            className="flex flex-col justify-between p-6 rounded-xl bg-slate-950 border border-slate-900 hover:border-sky-500/40 transition-all duration-300 shadow-lg shadow-black/50 group"
+          >
+            <div>
+              {/* Tag */}
+              <span className="inline-block text-xs font-semibold tracking-wider text-sky-400 bg-sky-950/50 px-2.5 py-1 rounded-md border border-sky-900/50 mb-4">
+                {project.tag}
+              </span>
+              
+              {/* Card Title */}
+              <h3 className="text-lg font-bold text-slate-100 group-hover:text-sky-400 transition-colors duration-200 mb-2">
+                {project.title}
+              </h3>
+              
+              {/* Card Description */}
+              <p className="text-slate-400 text-sm leading-relaxed mb-4">
+                {project.description}
+              </p>
+            </div>
+
+            {/* Action Link Button */}
+            <div className="pt-2">
+              <span className="text-xs font-medium text-slate-500 group-hover:text-slate-300 flex items-center gap-1 cursor-pointer transition-colors">
+                View Details →
+              </span>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );
